@@ -1,0 +1,30 @@
+﻿@model List<Classwork.Models.Entities.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a class="btn btn-primary" href="/product/create">Add Product</a>
+<hr>
+<h3>All Products</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Id</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+<tr>
+    <td>@p.Name</td>
+    <td>@p.Id</td>
+    <td>@p.Quantity</td>
+    <td>@p.Price</td>
+    <td>@p.Description</td>
+    <td><a href="/product/update/@p.Name" class="btn btn-success">Edit</a></td>
+    <td><a href="/product/delete/@p.Name" class="btn btn-danger">Delete</a></td>
+</tr>}
+</table>

@@ -1,0 +1,27 @@
+﻿@model Classwork.Models.Entities.Product
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<form action="/Product/Update" method="post">
+    Name: <input type="text" class="form-control" value="@Model.Name" name="Name" />
+
+    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+
+    <br>Id: <input type="text" class="form-control" value="@Model.Id" name="Id" />
+    @Html.ValidationMessageFor(m => m.Id, "", new { @class = "text-danger" })
+
+    <br>Quantity: <input type="text" class="form-control" value="@Model.Quantity" name="Quantity" />
+    @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+
+    <br>Price: <input type="text" class="form-control" value="@Model.Price" name="Price" />
+    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+
+    <br>Description: <input type="text" class="form-control" value="@Model.Description" name="Description" />
+    @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+
+    <input type="submit" value="Add" class="btn btn-success">
+
+</form>
