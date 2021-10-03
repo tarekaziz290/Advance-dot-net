@@ -19,7 +19,7 @@ namespace Classwork.Models.Tables
         {
 
             conn.Open();
-            string query = String.Format("insert into Products values ('{0}','{1}','{2}','{3}','{4}')", p.Name, p.Id, p.Quantity,p.Price,p.Description);
+            string query = String.Format("insert into Products values ('{0}','{1}','{2}','{3}')",  p.Name,  p.Quantity,p.Price,p.Description);
             SqlCommand cmd = new SqlCommand(query, conn);
             int r = cmd.ExecuteNonQuery();
             conn.Close();
@@ -37,9 +37,8 @@ namespace Classwork.Models.Tables
                 Product s = new Product()
                 {
 
-                    
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
                     Name = reader.GetString(reader.GetOrdinal("Name")),
-                    Id = reader.GetString(reader.GetOrdinal("Id")),
                     Quantity = reader.GetInt32(reader.GetOrdinal("Quantity")),
                     Price= (float)reader.GetDouble(reader.GetOrdinal("Price")),
                     Description = reader.GetString(reader.GetOrdinal("Description"))
@@ -51,10 +50,10 @@ namespace Classwork.Models.Tables
             conn.Close();
             return products;
         }
-        public Product Get(string name)
+        public Product Get(int id)
         {
             conn.Open();
-            string query = String.Format("Select * from  Products where Name={0}", name);
+            string query = String.Format("Select * from  Products where Id={0}", id);
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader reader = cmd.ExecuteReader();
             Product s = null;
@@ -62,9 +61,8 @@ namespace Classwork.Models.Tables
             {
                 s = new Product()
                 {
-                    
-                    Name = reader.GetString(reader.GetOrdinal("Name")),
-                    Id = reader.GetString(reader.GetOrdinal("Id")),
+                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                    Name = reader.GetString(reader.GetOrdinal("Name")),                   
                     Quantity = reader.GetInt32(reader.GetOrdinal("Quantity")),
                     Price = (float)reader.GetDouble(reader.GetOrdinal("Price")),
                     Description = reader.GetString(reader.GetOrdinal("Description"))
@@ -73,6 +71,25 @@ namespace Classwork.Models.Tables
             conn.Close();
             return s;
         }
+        public int Update(Product p)
+        {
+            conn.Open();
+            string query = String.Format("update Products set Name='{0}', Quantity={1}, Price={2}, Description='{3}' where Id={4}", p.Name, p.Quantity, p.Price, p.Description, p.Id);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            int r = cmd.ExecuteNonQuery();
+            conn.Close();
+            return r;
+        }
+        public int Delete(int id)
+        {
+            conn.Open();
+            string query = String.Format("Delete from Products where Id={0}", id);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            int r = cmd.ExecuteNonQuery();
+            conn.Close();
+            return r;
+        }
+
 
     }
 }

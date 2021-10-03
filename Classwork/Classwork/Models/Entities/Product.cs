@@ -8,15 +8,14 @@ namespace Classwork.Models.Entities
 {
     public class Product
     {
+        [Required]
+        public int Id { get; set; }
         [Required(ErrorMessage = "Please put your name")]
         public string Name { get; set; }
-
-        [Required]
-        public string Id { get; set; }
         [Required]
         public int Quantity { get; set; }
         [Required]
-        public double Price { get; set; }
+        public float Price { get; set; }
         [Required]
         public string Description { get; set; }
     }

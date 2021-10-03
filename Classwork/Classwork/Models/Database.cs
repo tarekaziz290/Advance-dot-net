@@ -16,7 +16,7 @@ namespace Classwork.Models
        
         public Database()
         {
-            string connString = @"Data Source=DESKTOP-SGI1TQE;Initial Catalog=connectdb;Persist Security Info=True;User ID=sa;Password=P@ssword";
+            string connString = @"Data Source=DESKTOP-SGI1TQE;Initial Catalog=test;Persist Security Info=True;User ID=sa;Password=P@ssword";
             conn = new SqlConnection(connString);       
             Products = new Products(conn);
             

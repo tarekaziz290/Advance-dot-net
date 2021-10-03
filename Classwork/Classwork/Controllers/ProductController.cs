@@ -35,11 +35,30 @@ namespace Classwork.Controllers
             return View(s);
         }
         [HttpGet]
-        public ActionResult Update(string name)
+        public ActionResult Update(int id)
         {
             Database db = new Database();
-            var s = db.Products.Get(name);
+            var s = db.Products.Get(id);
             return View(s);
+        }
+        [HttpPost]
+        public ActionResult Update(Product s)
+        {
+            if (ModelState.IsValid)
+            {
+                Database db = new Database();
+                db.Products.Update(s);
+                return RedirectToAction("Index");
+            }
+            return View(s);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Database db = new Database();
+            var s = db.Products.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }
