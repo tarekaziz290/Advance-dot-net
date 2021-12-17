@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Class1
+    public class UserRepo
     {
+       ProjectEntities db;
+        static UserRepo()
+        {
+
+        }
+
     }
 }

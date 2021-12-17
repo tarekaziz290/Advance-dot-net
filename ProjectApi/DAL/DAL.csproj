@@ -48,17 +48,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ApiKey.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRepo.cs" />
+    <Compile Include="Contact.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Plan.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSG.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PSG.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="PSG.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
     <Compile Include="PSG.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PSG.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SenderNumber.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Template.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Token.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>PSG.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +113,12 @@
     <Content Include="PSG.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PSG.Context.cs</LastGenOutput>
+      <DependentUpon>PSG.edmx</DependentUpon>
+    </Content>
+    <Content Include="PSG.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PSG.edmx</DependentUpon>
+      <LastGenOutput>PSG.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
